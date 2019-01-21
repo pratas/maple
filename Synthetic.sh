@@ -3,14 +3,15 @@
 # USAGE: chmod +x Synthetic.sh; ./Synthetic.sh 
 #
 #==============================================================================
-GET_GOOSE=0;
-GET_CHESTER=0;
-GET_GECO=0;
+GET_GOOSE=1;
+GET_CHESTER=1;
+GET_GECO=1;
 GENERATE_SEQS=1;
 RUN_GECO=1;
 BIN_FILTER=1;
 FILTER=1;
 PAINT=1;
+CALC_NUM=1;
 #==============================================================================
 # GET GOOSE
 if [[ "$GET_GOOSE" -eq "1" ]]; then
@@ -95,12 +96,40 @@ fi
 #==============================================================================
 # PAINT
 if [[ "$PAINT" -eq "1" ]]; then
-  ./CHESTER-visual -e 50000 S1.b.seg:S2.b.seg:S3.b.seg:S4.b.seg:S5.b.seg:S6.b.seg:S7.b.seg:S8.b.seg:S9.b.seg:S10.b.seg:S11.b.seg:S12.b.seg:S13.b.seg:S14.b.seg:S15.b.seg:S16.b.seg:S17.b.seg:S18.b.seg:S19.b.seg:S20.b.seg:S21.b.seg:S22.b.seg:S23.b.seg:S24.b.seg:S25.b.seg:S26.b.seg:S27.b.seg:S28.b.seg:S29.b.seg:S30.b.seg:S31.b.seg:S32.b.seg:S33.b.seg:S34.b.seg:S35.b.seg:S36.b.seg:S37.b.seg:S38.b.seg:S39.b.seg:S40.b.seg:S41.b.seg:S42.b.seg:S43.b.seg:S44.b.seg:S45.b.seg:S46.b.seg:S47.b.seg:S48.b.seg:S49.b.seg:S50.b.seg
+  ./CHESTER-visual -e 1000 S1.b.seg:S2.b.seg:S3.b.seg:S4.b.seg:S5.b.seg:S6.b.seg:S7.b.seg:S8.b.seg:S9.b.seg:S10.b.seg:S11.b.seg:S12.b.seg:S13.b.seg:S14.b.seg:S15.b.seg:S16.b.seg:S17.b.seg:S18.b.seg:S19.b.seg:S20.b.seg:S21.b.seg:S22.b.seg:S23.b.seg:S24.b.seg:S25.b.seg:S26.b.seg:S27.b.seg:S28.b.seg:S29.b.seg:S30.b.seg:S31.b.seg:S32.b.seg:S33.b.seg:S34.b.seg:S35.b.seg:S36.b.seg:S37.b.seg:S38.b.seg:S39.b.seg:S40.b.seg:S41.b.seg:S42.b.seg:S43.b.seg:S44.b.seg:S45.b.seg:S46.b.seg:S47.b.seg:S48.b.seg:S49.b.seg:S50.b.seg
   mv plot.svg plot_synthetic.svg
 fi
 #=============================================================================#
-#                                                                             #
+# CALCULATE NUMBERS
+if [[ "$CALC_NUM" -eq "1" ]]; then
+  rm -f NUM_DATA;
+  for ((x=1; x<=40; ++x));
+    do
+    nump1=`wc -l S$x.b.seg | awk '{ print $1;}'`;
+    numr=$((--nump1));
+    printf "%d\t%d\n" "$x" "$numr" >> NUM_DATA;
+    done
+  gnuplot << EOF
+    reset
+    set terminal pdfcairo enhanced color font 'Verdana,12'
+    set output "Substitutions.pdf"
+    set style line 101 lc rgb '#000000' lt 1 lw 4
+    set border 3 front ls 101
+    set tics nomirror out scale 0.75
+    set format '%g'
+    set size ratio 0.2
+    set key outside horiz center top
+    set yrange [:] 
+    set xrange [0.4:40.5]
+    set grid 
+    set ylabel "Blocks"
+    set xlabel "Uniform pixel edition (%)"
+    set border linewidth 1.5
+    set style line 1 lc rgb '#0060ad' lt 1 lw 4 pt 5 ps 0.4 # --- blue
+    set style line 2 lc rgb '#0060ad' lt 1 lw 4 pt 6 ps 0.4 # --- green
+    set style line 3 lc rgb '#dd181f' lt 1 lw 4 pt 7 ps 0.5 # --- red
+    plot "NUM_DATA" using 2 with linespoints ls 2
+EOF
+fi
 #=============================================================================#
-~                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
-~                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
-~                                                                                           
+~                                                                                     
