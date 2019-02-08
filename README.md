@@ -2,7 +2,7 @@
 <b>MAPLE</b>: mapping and visualization of similar primer and adapter sequences</p>
 <br>
 
-Install:
+Installation:
 <pre>
 git clone https://github.com/pratas/maple.git
 cd maple/
