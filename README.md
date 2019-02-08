@@ -6,12 +6,12 @@
 <pre>
 git clone https://github.com/pratas/maple.git
 cd maple/
+chmod +x *.sh
 </pre>
 
 ## Run
 Run synthetic:
 <pre>
-chmod +x Synthetic.sh.sh
 ./Synthetic.sh
 </pre>
 
@@ -23,7 +23,6 @@ cd data_dir/
 Then, download or copy to this folder any fasta sequence with .fna extension. Finally, run
 <pre>
 cd ..
-chmod +x Maple_dir.sh.sh
 ./Maple_dir.sh data_dir
 </pre>
 
