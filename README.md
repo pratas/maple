@@ -1,5 +1,5 @@
 <p align="center">
-<b>MAPLE</b>: Visualization of similar primer and adapter sequences</p>
+<b>MAPLE</b>: mapping and visualization of similar primer and adapter sequences</p>
 <br>
 
 Install:
