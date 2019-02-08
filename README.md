@@ -17,8 +17,14 @@ chmod +x Synthetic.sh.sh
 
 Run directory:
 <pre>
+mkdir data_dir
+cd data_dir/
+</pre>
+Then, download or copy to this folder any fasta sequence with .fna extension. Finally, run
+<pre>
+cd ..
 chmod +x Maple_dir.sh.sh
-./Maple_dir.sh
+./Maple_dir.sh data_dir
 </pre>
 
 ## Cite
