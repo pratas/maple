@@ -16,7 +16,7 @@ Run synthetic:
 ./Synthetic.sh
 </pre>
 
-Run directory:
+Create a directory and move to it:
 <pre>
 mkdir data_dir
 cd data_dir/
