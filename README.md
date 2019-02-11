@@ -1,4 +1,4 @@
-<p align="center"><img src="logo.png"
+<p align="center"><img src="imgs/maple.png"
 alt="MAPLE" height="264" border="0" /><br><br>
 <b>MAPLE</b>: mapping and visualization of similar primer and adapter sequences</p>
 <br>
