@@ -25,6 +25,10 @@ Then, download or copy to this folder any fasta sequence with .fna extension. Fi
 cd ..
 ./Maple_dir.sh data_dir
 </pre>
+To find which of the adapters have higher similarity, run:
+<pre>
+./Top_PA.sh
+</pre>
 
 ## Cite
 Please cite the followings, if you use maple:
